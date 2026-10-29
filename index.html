@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es-UY">
+  <head>
+    <!-- CABECERA: codificación y adaptación a móviles -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- SEO: título y descripción que aparecen en Google -->
+    <title>Impulso Web UY | Páginas web para negocios de Uruguay</title>
+    <meta name="description" content="Diseño páginas web rápidas y claras para negocios uruguayos. Que tus visitas se conviertan en consultas. Pedí tu presupuesto sin compromiso.">
+    <meta name="theme-color" content="#0d1530">
+    <!-- VISTA PREVIA al compartir el enlace (WhatsApp, Facebook, etc.) -->
+    <meta property="og:title" content="Impulso Web UY">
+    <meta property="og:description" content="Páginas web que convierten visitas en consultas. Uruguay.">
+    <meta property="og:image" content="logo.png">
+    <!-- ÍCONO de la pestaña del navegador -->
+    <link rel="icon" href="favicon.png">
+    <!-- FUENTE: Bricolage Grotesque desde Google Fonts (con respaldo del sistema si falla) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+    <!-- HOJA DE ESTILOS propia -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- BARRA DE PROGRESO de lectura (se anima desde script.js) -->
+    <div class="bar" id="bar"></div>
+    <!-- HEADER FIJO: logo y botón de presupuesto -->
+    <header class="top">
+      <a href="#inicio" class="brand">
+        <img src="assets/logo.webp" alt="" width="36" height="36">
+        <span>Impulso Web UY</span>
+      </a>
+      <a href="#contacto" class="btn sm">Pedir presupuesto</a>
+    </header>
+    <!-- NAVEGACIÓN LATERAL: un punto por sección (solo en pantallas grandes) -->
+    <nav class="rail" aria-label="Secciones">
+      <a href="#inicio" data-t="Inicio"></a>
+      <a href="#problema" data-t="El problema"></a>
+      <a href="#servicios" data-t="Qué hago"></a>
+      <a href="#proceso" data-t="Cómo trabajo"></a>
+      <a href="#dudas" data-t="Dudas"></a>
+      <a href="#contacto" data-t="Contacto"></a>
+    </nav>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+      <!-- 1. INICIO: promesa principal y dos llamados a la acción -->
+      <section id="inicio" class="hero">
+        <h1>
+          Una web que trabaja para tu negocio,
+          <br>
+          no solo que existe.
+        </h1>
+        <p class="lead">Diseño páginas web claras, rápidas y pensadas para que quien te visita termine escribiéndote. Para negocios y profesionales de Uruguay.</p>
+        <div class="cta">
+          <a href="#contacto" class="btn">Pedir presupuesto</a>
+          <a href="#servicios" class="btn ghost">Ver qué hago</a>
+        </div>
+        <svg class="arrow" viewBox="0 0 400 120" aria-hidden="true">
+          <path d="M5 110 C 90 110, 120 50, 200 60 S 320 20, 385 8" />
+          <path d="M360 6 L388 7 L378 32" />
+        </svg>
+      </section>
+      <!-- 2. EL PROBLEMA: por qué tener seguidores no alcanza, comparado con tener web propia -->
+      <section id="problema" class="sec light">
+        <h2>Los seguidores no pagan facturas. Los clientes sí.</h2>
+        <p class="lead">Muchos negocios tienen redes activas y aun así el teléfono no suena. Falta un lugar donde alguien entienda qué hacés, confíe y te contacte.</p>
+        <div class="vs">
+          <div>
+            <h3>Solo redes</h3>
+            <ul>
+              <li>Te ven y se van, sin dejar datos</li>
+              <li>Nadie sabe precios ni cómo contratarte</li>
+              <li>No aparecés cuando te buscan en Google</li>
+            </ul>
+          </div>
+          <div class="win">
+            <h3>Redes + web propia</h3>
+            <ul>
+              <li>Cada visita llega a un botón de contacto</li>
+              <li>Explicás tu servicio una vez, 24 horas al día</li>
+              <li>Te encuentran por tu zona y tu rubro</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- 3. SERVICIOS: pestañas; el contenido de cada una se carga desde script.js -->
+      <section id="servicios" class="sec">
+        <h2>Qué hago, en concreto</h2>
+        <p class="lead">Elegí una opción para ver para quién es y qué incluye.</p>
+        <div class="tabs" role="tablist">
+          <button role="tab" aria-selected="true" data-i="0">Web de presentación</button>
+          <button role="tab" aria-selected="false" data-i="1">Landing para vender</button>
+          <button role="tab" aria-selected="false" data-i="2">Tienda online</button>
+          <button role="tab" aria-selected="false" data-i="3">Mantenimiento</button>
+        </div>
+        <div class="panel" id="panel" aria-live="polite"></div>
+      </section>
+      <!-- 4. PROCESO: pasos en orden, de la primera charla al seguimiento -->
+      <section id="proceso" class="sec light">
+        <h2>Cómo trabajamos, paso a paso</h2>
+        <ol class="steps">
+          <li>
+            <b>Charla inicial</b>
+            <span>Me contás qué hacés y a quién querés llegar. Sin costo.</span>
+          </li>
+          <li>
+            <b>Propuesta y presupuesto</b>
+            <span>Recibís alcance, plazo y precio cerrados por escrito.</span>
+          </li>
+          <li>
+            <b>Diseño y textos</b>
+            <span>Armo la web con tu logo y colores. Ves un avance y pedís ajustes.</span>
+          </li>
+          <li>
+            <b>Publicación</b>
+            <span>La dejo online, con dominio, versión móvil y botón de WhatsApp.</span>
+          </li>
+          <li>
+            <b>Seguimiento</b>
+            <span>Te acompaño después: cambios, dudas y mejoras cuando las necesites.</span>
+          </li>
+        </ol>
+      </section>
+      <!-- 5. DUDAS FRECUENTES: desplegables nativos, no requieren JavaScript -->
+      <section id="dudas" class="sec">
+        <h2>Dudas frecuentes</h2>
+        <details>
+          <summary>¿Cuánto cuesta una página web?</summary>
+          <p>Depende del tipo y la cantidad de secciones. Contame tu caso y te paso un presupuesto cerrado, sin sorpresas.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto demora?</summary>
+          <p>Una web de presentación suele estar lista en pocos días desde que tengo tus textos e imágenes. Te confirmo el plazo en el presupuesto.</p>
+        </details>
+        <details>
+          <summary>¿Necesito saber de tecnología?</summary>
+          <p>No. Me encargo del diseño, el dominio y la publicación. Vos solo me contás sobre tu negocio.</p>
+        </details>
+        <details>
+          <summary>¿Se ve bien en el celular?</summary>
+          <p>Sí. Todas las webs se diseñan primero para móvil, que es desde donde te va a visitar la mayoría.</p>
+        </details>
+      </section>
+      <!-- 6. CONTACTO: el formulario arma un mensaje y abre WhatsApp -->
+      <section id="contacto" class="sec contact">
+        <h2>Contame de tu negocio</h2>
+        <p class="lead">Completá esto y se abre WhatsApp con tu mensaje listo para enviar. Respondo personalmente.</p>
+        <form id="form" novalidate>
+          <label>
+            Tu nombre
+            <input name="n" required autocomplete="name">
+          </label>
+          <label>
+            Tu negocio o rubro
+            <input name="r" placeholder="Ej: peluquería en Montevideo" autocomplete="organization">
+          </label>
+          <!-- Tipo de servicio: opciones tipo chip (el orden coincide con las pestañas) -->
+          <fieldset>
+            <legend>¿Qué necesitás?</legend>
+            <label class="chip">
+              <input type="radio" name="t" value="una web de presentación" checked>
+              <span>Web de presentación</span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="t" value="una landing para vender">
+              <span>Landing para vender</span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="t" value="una tienda online">
+              <span>Tienda online</span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="t" value="mejorar mi web actual">
+              <span>Mejorar mi web</span>
+            </label>
+          </fieldset>
+          <label>
+            Algo más que quieras contarme
+            <textarea name="m" rows="3"></textarea>
+          </label>
+          <button class="btn" type="submit">Enviar por WhatsApp</button>
+          <p class="err" id="err" role="alert"></p>
+        </form>
+      </section>
+    </main>
+    <!-- PIE DE PÁGINA: el año se completa solo desde script.js -->
+    <footer>
+      <img src="assets/logo.webp" alt="" width="28" height="28">
+      <span>© <span id="y"></span> Impulso Web UY · Uruguay</span>
+      <a href="https://www.tiktok.com/@impulsoweb.uy" rel="noopener">TikTok</a>
+    </footer>
+    <!-- BOTÓN FLOTANTE para móvil -->
+    <a href="#contacto" class="fab btn">Pedir presupuesto</a>
+    <!-- SCRIPT al final, para no bloquear la carga de la página -->
+    <script src="script.js"></script>
+  </body>
+</html>

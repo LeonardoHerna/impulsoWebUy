@@ -1,0 +1,624 @@
+/* ==========================================================
+   IMPULSO WEB UY - style.css
+   Estilos en orden de aparición en la página.
+   ========================================================== */
+
+/* VARIABLES: paleta tomada del logo (azul noche, cian, naranja, gris) y ancho de lectura */
+:root {
+  --navy: #0d1530;
+  --navy2: #16214a;
+  --cyan: #27c6f4;
+  --orange: #ff7a1a;
+  --grey: #e9e9f1;
+  --ink: #0d1530;
+  --w: min(100% - 2.5rem,46rem);
+}
+
+/* RESET: todos los elementos usan border-box y sin márgenes por defecto */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* SCROLL SUAVE y margen superior para que el header fijo no tape los títulos */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+}
+
+/* BASE: tipografía, fondo oscuro y color de texto general */
+body {
+  font: 400 1.0625rem/1.6 "Bricolage Grotesque",system-ui,sans-serif;
+  background: var(--navy);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* IMÁGENES: nunca se desbordan de su contenedor */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+/* TIPOGRAFÍA: títulos con tamaños fluidos (clamp) que se adaptan al ancho de pantalla */
+h1,
+h2,
+h3 {
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.02em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.1rem,7vw,4rem);
+}
+
+h2 {
+  font-size: clamp(1.7rem,5vw,2.8rem);
+  margin-bottom: 1rem;
+}
+
+/* TEXTO DE APOYO: párrafo destacado debajo de los títulos */
+.lead {
+  font-size: 1.15rem;
+  max-width: 36rem;
+  opacity: .85;
+  margin: 1rem 0 1.8rem;
+}
+
+/* BARRA DE PROGRESO: línea superior que crece con el scroll (la controla script.js) */
+.bar {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg,var(--cyan),var(--orange));
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 30;
+}
+
+/* HEADER FIJO: logo y botón de contacto siempre visibles */
+.top {
+  position: fixed;
+  inset: 4px 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .6rem 1.25rem;
+  z-index: 20;
+  background: rgba(13,21,48,.85);
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  display: flex;
+  gap: .6rem;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.brand img {
+  border-radius: 50%;
+}
+
+/* BOTONES: principal (naranja), pequeño y versión con borde (ghost) */
+.btn {
+  display: inline-block;
+  background: var(--orange);
+  color: #1a0f00;
+  font: inherit;
+  font-weight: 800;
+  padding: .9rem 1.6rem;
+  border: 0;
+  border-radius: .4rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .2s,box-shadow .2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 -2px #c4570a;
+}
+
+.btn.sm {
+  padding: .5rem 1rem;
+  font-size: .95rem;
+}
+
+.btn.ghost {
+  background: none;
+  color: #fff;
+  box-shadow: inset 0 0 0 2px var(--cyan);
+}
+
+.btn.ghost:hover {
+  box-shadow: inset 0 0 0 2px var(--cyan),0 8px 0 -2px var(--cyan);
+}
+
+/* NAVEGACIÓN LATERAL: puntos fijos a la izquierda; el activo se agranda y se pone naranja */
+.rail {
+  position: fixed;
+  left: 1.2rem;
+  top: 50%;
+  translate: 0 -50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  z-index: 20;
+}
+
+.rail a {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff4;
+  transition: .25s;
+}
+
+.rail a.on {
+  background: var(--orange);
+  scale: 1.5;
+}
+
+.rail a::after {
+  content: attr(data-t);
+  position: absolute;
+  left: 1.6rem;
+  top: -.25rem;
+  white-space: nowrap;
+  font-size: .85rem;
+  font-weight: 600;
+  background: var(--navy2);
+  padding: .15rem .6rem;
+  border-radius: .3rem;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: .2s;
+  pointer-events: none;
+}
+
+.rail a:hover::after,
+.rail a:focus-visible::after {
+  opacity: 1;
+  transform: none;
+}
+
+/* SECCIONES: espaciado general y contenido centrado en una columna legible */
+section,
+/* PIE DE PÁGINA */
+footer {
+  padding: 6rem max(1.25rem,calc((100% - 46rem)/2));
+}
+
+/* HERO (inicio): ocupa toda la pantalla, con un brillo cian de fondo */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 7rem;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(60rem 30rem at 85% 10%,#27c6f426,transparent 60%);
+}
+
+.hero-logo {
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  animation: pop .8s cubic-bezier(.2,1.4,.4,1) both;
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+}
+
+.arrow {
+  position: absolute;
+  right: -2rem;
+  bottom: 2rem;
+  width: min(30rem,90%);
+  fill: none;
+  stroke: var(--orange);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: .9;
+}
+
+.arrow path:first-child {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: draw 1.6s .5s ease-out forwards;
+}
+
+.arrow path:last-child {
+  opacity: 0;
+  animation: fade .3s 2s forwards;
+}
+
+/* ANIMACIONES DEL HERO: la flecha se dibuja sola y el logo aparece con rebote */
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pop {
+  from {
+    scale: .6;
+    opacity: 0;
+  }
+}
+
+/* SECCIONES CLARAS: fondo gris para alternar ritmo con las oscuras */
+.light {
+  background: var(--grey);
+  color: var(--ink);
+}
+
+/* COMPARATIVA 'Solo redes' vs 'Redes + web': dos tarjetas lado a lado, la segunda resaltada */
+.vs {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+}
+
+.vs>div {
+  padding: 1.5rem;
+  border-radius: .6rem;
+  background: #fff;
+  border: 2px dashed #0d153044;
+}
+
+.vs .win {
+  background: var(--navy);
+  color: #fff;
+  border: 2px solid var(--cyan);
+  transform: translateY(-.6rem);
+}
+
+.vs h3 {
+  font-size: 1.3rem;
+  margin-bottom: .8rem;
+}
+
+.vs ul {
+  padding-left: 1.1rem;
+}
+
+.vs li {
+  margin: .4rem 0;
+}
+
+.vs li::marker {
+  color: var(--orange);
+}
+
+/* PESTAÑAS DE SERVICIOS: botones tipo píldora; el seleccionado se pinta de cian */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 1.2rem;
+}
+
+.tabs button {
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: none;
+  border: 2px solid #fff3;
+  border-radius: 2rem;
+  padding: .5rem 1.1rem;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.tabs button[aria-selected=true] {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: var(--navy);
+}
+
+/* PANEL DE SERVICIO: contenido que cambia al elegir una pestaña */
+.panel {
+  background: var(--navy2);
+  border-left: 6px solid var(--orange);
+  border-radius: .5rem;
+  padding: 1.6rem;
+  min-height: 15rem;
+}
+
+.panel.swap {
+  animation: fade2 .35s;
+}
+
+@keyframes fade2 {
+  from {
+    opacity: 0;
+    translate: 0 8px;
+  }
+}
+
+.panel h3 {
+  font-size: 1.5rem;
+  margin-bottom: .4rem;
+}
+
+.panel p {
+  opacity: .85;
+}
+
+.panel ul {
+  margin: 1rem 0 1.2rem;
+  padding-left: 1.1rem;
+}
+
+.panel li {
+  margin: .3rem 0;
+}
+
+.panel li::marker {
+  color: var(--cyan);
+}
+
+.panel a {
+  color: var(--orange);
+  font-weight: 800;
+}
+
+/* PROCESO: línea de tiempo vertical con pasos numerados (aquí sí es una secuencia real) */
+.steps {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+  position: relative;
+  counter-reset: s;
+}
+
+.steps::before {
+  content: "";
+  position: absolute;
+  left: 1.15rem;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(var(--cyan),var(--orange));
+  border-radius: 2px;
+}
+
+.steps li {
+  position: relative;
+  padding: 0 0 2rem 4rem;
+  counter-increment: s;
+  display: flex;
+  flex-direction: column;
+}
+
+.steps li::before {
+  content: counter(s);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+}
+
+.steps b {
+  font-size: 1.25rem;
+}
+
+.steps span {
+  opacity: .8;
+}
+
+/* PREGUNTAS FRECUENTES: desplegables; el '+' gira al abrirse */
+details {
+  border-bottom: 1px solid #fff3;
+  padding: 1rem 0;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.15rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+summary::after {
+  content: "+";
+  color: var(--orange);
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: rotate .2s;
+}
+
+details[open] summary::after {
+  rotate: 45deg;
+}
+
+details p {
+  margin-top: .6rem;
+  opacity: .85;
+}
+
+/* CONTACTO: fondo con degradado suave */
+.contact {
+  background: linear-gradient(160deg,var(--navy2),var(--navy));
+}
+
+/* FORMULARIO: campos de texto, opciones tipo chip y mensaje de error */
+form {
+  display: grid;
+  gap: 1.2rem;
+  max-width: 36rem;
+}
+
+label {
+  display: grid;
+  gap: .4rem;
+  font-weight: 600;
+}
+
+input[type=text],
+input:not([type]),
+textarea {
+  font: inherit;
+  color: #fff;
+  background: #fff1;
+  border: 2px solid #fff3;
+  border-radius: .4rem;
+  padding: .8rem;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--cyan);
+  outline: none;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+legend {
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+
+.chip {
+  display: block;
+}
+
+.chip input {
+  position: absolute;
+  opacity: 0;
+}
+
+.chip span {
+  display: block;
+  padding: .5rem 1rem;
+  border: 2px solid #fff3;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-weight: 400;
+  transition: .2s;
+}
+
+.chip input:checked+span {
+  background: var(--cyan);
+  color: var(--navy);
+  border-color: var(--cyan);
+  font-weight: 600;
+}
+
+.chip input:focus-visible+span {
+  outline: 3px solid var(--orange);
+}
+
+.err {
+  color: #ffb38a;
+  min-height: 1.4rem;
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  padding-block: 2rem;
+  font-size: .9rem;
+  opacity: .8;
+  background: #080e22;
+}
+
+footer img {
+  border-radius: 50%;
+}
+
+footer a {
+  margin-left: auto;
+}
+
+/* BOTÓN FLOTANTE (solo en móvil): aparece al bajar, se oculta cerca del formulario */
+.fab {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 25;
+  box-shadow: 0 6px 20px #0006;
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s;
+}
+
+.fab.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* RESPONSIVE Y ACCESIBILIDAD: oculta navegación lateral en pantallas chicas, muestra el botón flotante y respeta 'reducir movimiento' */
+@media (max-width: 63rem) {
+  .rail {
+    display: none;
+  }
+}
+
+@media (max-width: 34rem) {
+  .brand span {
+    display: none;
+  }
+}
+
+@media (min-width: 63rem) {
+  .fab {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .arrow path {
+    stroke-dashoffset: 0 !important;
+    opacity: 1 !important;
+  }
+}
