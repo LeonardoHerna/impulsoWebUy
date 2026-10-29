@@ -10,7 +10,7 @@
 /* ---------- 1. CONFIGURACIÓN ----------
    Cambiá este valor por tu número real (código de país + número,
    sin "+" ni espacios). Uruguay = 598. */
-const WHATSAPP = "598XXXXXXXX";
+const WHATSAPP = "59897431589";
 
 
 /* ---------- 2. ATAJOS ----------
@@ -79,7 +79,7 @@ function show(i) {
     <h3>${s.t}</h3>
     <p>${s.p}</p>
     <ul>${s.l.map(item => `<li>${item}</li>`).join("")}</ul>
-    <a href="#contacto" data-svc="${i}">Pedir presupuesto de esto</a>
+    <a href="#contacto" data-svc="${i}">Pedir presupuesto</a>
   `;
 
   // Reinicia la animación de entrada (quita la clase, fuerza reflow y la vuelve a poner)

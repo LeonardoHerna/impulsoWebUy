@@ -43,7 +43,15 @@ img {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
+
+a:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 -2px #c4570a;
+}
+
+
 
 :focus-visible {
   outline: 3px solid var(--cyan);
@@ -172,6 +180,7 @@ h2 {
 .rail a.on {
   background: var(--orange);
   scale: 1.5;
+ 
 }
 
 .rail a::after {
