@@ -46,10 +46,9 @@ a {
   text-decoration: none;
 }
 
-a:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 8px 0 -2px #c4570a;
-}
+
+
+
 
 
 
@@ -396,6 +395,12 @@ footer {
 .panel a {
   color: var(--orange);
   font-weight: 800;
+  
+}
+
+.panel a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 -2px #c4570a;
 }
 
 /* PROCESO: línea de tiempo vertical con pasos numerados (aquí sí es una secuencia real) */
@@ -582,6 +587,12 @@ footer img {
 
 footer a {
   margin-left: auto;
+}
+
+footer a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 -2px #c4570a;
 }
 
 /* BOTÓN FLOTANTE (solo en móvil): aparece al bajar, se oculta cerca del formulario */
